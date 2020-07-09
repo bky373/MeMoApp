@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_note"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.bobo.mytodolist.HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.bobo.mytodolist.TaskDetailFragment"
+        android:label="TaskDetailFragment" >
+        <argument
+            android:name="taskId"
+            app:argType="long"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.bobo.mytodolist.AddTaskFragment"
+        android:label="AddTaskFragment" />
+</navigation>

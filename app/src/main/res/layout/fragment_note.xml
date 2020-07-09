@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bobo.mytodolist.viewModels.NoteViewModel" />
+
+        <variable
+            name="addCallback"
+            type="com.bobo.mytodolist.NoteFragment.Callback" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="@color/pink_light"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_note"
+            />
+
+        <LinearLayout
+            android:id="@+id/sub_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pink_light"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/enter_task_name"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginStart="2dp"-->
+            <!--                android:layout_marginTop="6dp"-->
+            <!--                android:layout_marginBottom="7dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:background="@drawable/memo_edit_text"-->
+            <!--                android:drawableStart="@drawable/selector_edit_left"-->
+            <!--                android:drawablePadding="12dp"-->
+            <!--                android:fontFamily="@font/maplestory_light"-->
+            <!--                android:hint="@string/please_enter_task"-->
+            <!--                android:inputType="textMultiLine"-->
+            <!--                android:paddingStart="12dp"-->
+            <!--                android:paddingEnd="12dp"-->
+            <!--                android:textSize="20dp" />-->
+            <EditText
+                android:id="@+id/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:background="@drawable/memo_edit_text"
+                android:drawableStart="@drawable/selector_edit_left"
+                android:drawableEnd="@drawable/ic_add_circle"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/maplestory_light"
+                android:hint="@string/please_enter_task"
+                android:inputType="textMultiLine"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textSize="20dp" />
+
+            <!-- 머티리얼 버튼으로 바꾸기 !-->
+            <!--            <com.google.android.material.button.MaterialButton-->
+            <!--                android:id="@+id/add_btn"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="4dp"-->
+            <!--                android:layout_marginEnd="2dp"-->
+            <!--                android:fontFamily="@font/maplestory_light"-->
+            <!--                android:onClick="@{()-> addCallback.onAdd()}"-->
+            <!--                android:padding="15dp"-->
+            <!--                android:text="@string/input_btn"-->
+            <!--                android:textSize="18dp"-->
+            <!--                app:cornerRadius="4dp" />-->
+            <!--            style="@style/defaultButton"-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

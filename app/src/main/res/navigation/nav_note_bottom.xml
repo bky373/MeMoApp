@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_note"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.bobo.mytodolist.NoteFragment"
+        android:label="NoteFragment" />
+    <fragment
+        android:id="@+id/folderFragment"
+        android:name="com.bobo.mytodolist.FolderFragment"
+        android:label="FolderFragment" />
+    <fragment
+        android:id="@+id/binFragment"
+        android:name="com.bobo.mytodolist.BinFragment"
+        android:label="BinFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.bobo.mytodolist.SettingFragment"
+        android:label="SettingFragment" />
+</navigation>

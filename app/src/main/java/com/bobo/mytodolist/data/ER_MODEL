@@ -1,0 +1,15 @@
+
+
+
+
+
+Entity 1: Task
+attribute : id, name
+
+Entity 2: NoteTaking
+attribute : id, task_id
+
+Entity 3: TaskAndNote
+attribute : Embedded Task
+Relation : noteListings (parentColumn = id, entityColumn = task_id)
+

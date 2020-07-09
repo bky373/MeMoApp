@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="binItem"
+            type="com.bobo.mytodolist.data.Task" />
+
+        <variable
+            name="viewModel"
+            type="com.bobo.mytodolist.viewModels.BinViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="5dp"
+        tools:ignore="MissingDefaultResource">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <!--            <TextView-->
+            <!--                android:layout_width="2dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginStart="2dp"-->
+            <!--                android:layout_marginTop="3dp"-->
+            <!--                android:layout_marginBottom="3dp"-->
+            <!--                android:background="@color/pink_custom" />-->
+            <ImageView
+                android:id="@+id/iv_restore"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_restore" />
+
+            <TextView
+                android:id="@+id/task_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:gravity="center"
+                android:hint="@string/hint_enter_task"
+                android:onClick="@{clickListener}"
+                android:padding="4dp"
+                android:text="@{binItem.name}"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete_forever"
+                android:backgroundTint="@color/red_light"
+                android:layout_width="54dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="@font/maplestory_light"
+                android:text="@string/delete"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

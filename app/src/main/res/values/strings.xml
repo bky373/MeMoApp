@@ -1,0 +1,40 @@
+<resources>
+    <!-- app title & tab title -->
+    <string name="app_name">메모메모해</string>
+    <string name="task_to_do">간단 메모</string>
+    <string name="edit_task_name">메모 수정</string>
+    <string name="task_group">메모 그룹</string>
+    <string name="resolutions_of_this_year">올해 꼭 이룰 일</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="enter_todo">메모 입력하기</string>
+    <string name="btn_editTask">메모 수정 버튼</string>
+    <string name="extended_fab_label">수정 완료</string>
+    <string name="complete_editing">메모가 수정되었습니다</string>
+    <string name="please_enter_task">메모를 입력해주세요</string>
+    <string name="add_btn">추가</string>
+    <string name="hint_enter_task">메모 입력하기</string>
+    <string name="menu_search">검색</string>
+    <string name="menu_settings">설정</string>
+    <string name="exit">종료</string>
+    <string name="finish_on_back_pressed">한 번 더 누르면 종료됩니다</string>
+    <string name="enter_btn">입력</string>
+     <string name="delete">삭제</string>
+    <string name="cancel">취소</string>
+    <string name="share">공유</string>
+    <string name="task_deleted">메모가 삭제되었습니다</string>
+    <string name="alert_delete_title">잠깐!</string>
+    <string name="alert_delete_all_title">주의!</string>
+    <string name="ask_delete_forever"> 완전히 삭제하시겠습니까?\n\n삭제를 클릭할 경우, \n더 이상 복구할 수 없습니다.\n\n</string>
+    <string name="ask_delete_all_forever"> 완료 메모를 &lt;모두&gt; 삭제하시겠습니까?\n\n삭제를 클릭할 경우, \n더 이상 복구할 수 없습니다.\n\n</string>
+    <string name="finished">완료</string>
+    <string name="bin">완료 메모</string>
+    <string name="all_bins_deleted">완료 메모가 모두 삭제되었습니다</string>
+    <string name="menu_empty_bin">완료 메모 싹~ 비우기</string>
+    <string name="move_task_to_bin">완료 메모로 이동하였습니다</string>
+    <string name="move_task_to_note">간단 메모로 이동하였습니다</string>
+    <string name="select_tag_color">태그 색 선택</string>
+    <string name="input_btn">작성</string>
+    <string name="select_tag">태그 선택</string>
+</resources>

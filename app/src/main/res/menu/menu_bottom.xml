@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/noteFragment"
+        android:icon="@drawable/selector_tab_note"
+        android:title="" />
+    <item
+        android:id="@+id/folderFragment"
+        android:icon="@drawable/selector_tab_folder"
+        android:title="" />
+
+    <item
+        android:id="@+id/binFragment"
+        android:icon="@drawable/selector_tab_bin"
+        android:title="" />
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/selector_tab_setting"
+        android:title="" />
+</menu>
