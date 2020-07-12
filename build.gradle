@@ -8,20 +8,21 @@ buildscript {
         tartgetSdkVersion = 29
 
 
-        appCompatVersion = '1.1.0'
-        constraintLayoutVersion = '2.0.0-beta7'
-        coreTestingVersion = '2.1.0'
-        coroutinesVersion = '1.3.4'
-        espressoVersion = '3.2.0'
-        fragmentVersion = '1.2.4'
-        kotlinVersion = '1.3.72'
-        ktxVersion = '1.3.0'
-        lifecycleVersion = '2.2.0'
-        materialVersion = '1.3.0-alpha01'
-        navVersion = '2.3.0-beta01'
-        recyclerViewVersion = '1.1.0-alpha05'
-        roomVersion = '2.2.5'
-        viewPagerVersion = '1.0.0'
+        version_appCompat = '1.1.0'
+        version_cardView = '1.0.0'
+        version_constraintLayout = '2.0.0-beta7'
+        version_coreTesting = '2.1.0'
+        version_coroutines = '1.3.4'
+        version_espresso = '3.2.0'
+        version_fragment = '1.2.4'
+        version_kotlin = '1.3.72'
+        version_ktx = '1.3.0'
+        version_lifecycle = '2.2.0'
+        version_material = '1.3.0-alpha01'
+        version_navigation = '2.3.0-beta01'
+        version_recyclerView = '1.1.0-alpha05'
+        version_room = '2.2.5'
+        version_viewPager = '1.0.0'
     }
 
     repositories {
@@ -31,8 +32,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
