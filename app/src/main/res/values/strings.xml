@@ -2,19 +2,19 @@
     <!-- app title & tab title -->
     <string name="app_name">메모메모해</string>
     <string name="task_to_do">간단 메모</string>
-    <string name="edit_task_name">메모 수정</string>
+    <string name="edit_task_name">메모 수정하기</string>
     <string name="task_group">메모 그룹</string>
     <string name="resolutions_of_this_year">올해 꼭 이룰 일</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="enter_todo">메모 입력하기</string>
+    <string name="write_memo">메모 입력하기</string>
+    <string name="hint_write_memo">메모를 입력해주세요</string>
     <string name="btn_editTask">메모 수정 버튼</string>
-    <string name="extended_fab_label">수정 완료</string>
+    <string name="fab_label_finish_edit">수정 완료</string>
     <string name="complete_editing">메모가 수정되었습니다</string>
     <string name="please_enter_task">메모를 입력해주세요</string>
     <string name="add_btn">추가</string>
-    <string name="hint_enter_task">메모 입력하기</string>
     <string name="menu_search">검색</string>
     <string name="menu_settings">설정</string>
     <string name="exit">종료</string>
@@ -37,4 +37,6 @@
     <string name="select_tag_color">태그 색 선택</string>
     <string name="input_btn">작성</string>
     <string name="select_tag">태그 선택</string>
+    <string name="fab_label_finish_write">작성 완료</string>
+    <string name="title_write_memo">메모 작성하기</string>
 </resources>

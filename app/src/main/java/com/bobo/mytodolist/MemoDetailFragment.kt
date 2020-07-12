@@ -10,22 +10,25 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 
 import com.bobo.mytodolist.data.Task
-import com.bobo.mytodolist.databinding.FragmentAddTaskBinding
+import com.bobo.mytodolist.databinding.FragmentMemoDetailBinding
 import com.bobo.mytodolist.utilities.FunctionsUtils
 import com.bobo.mytodolist.utilities.InjectorUtils
-import com.bobo.mytodolist.viewModels.NoteViewModel
+import com.bobo.mytodolist.viewModels.TaskDetailViewModel
 
-//const val TAG_RED = 0
-//const val TAG_YELLOW = 1
-//const val TAG_BLUE = 2
-//const val TAG_PINK = 3
+const val TAG_RED = 0
+const val TAG_YELLOW = 1
+const val TAG_BLUE = 2
+const val TAG_PINK = 3
 
-class AddTaskFragment : Fragment() {
+class TaskDetailFragment : Fragment() {
+    val TAG = "tag"
 
-    private val noteViewModel: NoteViewModel by viewModels {
-        InjectorUtils.provideTaskViewModelFactory(requireContext())
+    private val args: TaskDetailFragmentArgs by navArgs()
+    private val taskDetailViewModel: TaskDetailViewModel by viewModels {
+        InjectorUtils.provideTaskDetailViewModelFactory(requireActivity(), args.taskId)
     }
 
     override fun onCreateView(
@@ -33,22 +36,25 @@ class AddTaskFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentAddTaskBinding>(
-            inflater, R.layout.fragment_add_task, container, false
+        val binding = DataBindingUtil.inflate<FragmentMemoDetailBinding>(
+            inflater, R.layout.fragment_memo_detail, container, false
         ).apply {
-            viewModel = noteViewModel
+            viewModel = taskDetailViewModel
             lifecycleOwner = viewLifecycleOwner
             callback = object : Callback {
-                override fun onAdd() {
-                    val taskName = editText.text.toString()
-                    if (taskName.isNotEmpty()) {
-                        viewModel?.apply {
-                            val currentTask = Task(taskName, getLargestOrder() + 1)
-                            addTask(currentTask)
-                        }
-                        editText.text.clear()
+                override fun onEdit(task: Task?) {
+                    task?.let {
+                        it.name = editTaskName.text.toString()
+                        viewModel?.editTask(it)
                         navigateUp(view)
                         FunctionsUtils.hideKeyboard(context, view)
+                    }
+                }
+
+                override fun onChangeColor(view: View?, task: Task?) {
+                    if (task != null) {
+                        val tagColor = selectTagColor(this@apply, view?.id)
+                        viewModel?.setTagColor(task, tagColor)
                     }
                 }
             }
@@ -88,18 +94,18 @@ class AddTaskFragment : Fragment() {
     }
 
     private fun createShareIntent() {
-//        val shareTask = taskDetailViewModel.task.value?.name.toString()
-//        val shareIntent = activity?.let { fragmentActivity ->
-//            ShareCompat.IntentBuilder.from(fragmentActivity)
-//                .setText(shareTask)
-//                .setType("text/plain")
-//                .createChooserIntent()
-//                .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
-//        }
-//        startActivity(shareIntent)
+        val shareTask = taskDetailViewModel.task.value?.name.toString()
+        val shareIntent = activity?.let { fragmentActivity ->
+            ShareCompat.IntentBuilder.from(fragmentActivity)
+                .setText(shareTask)
+                .setType("text/plain")
+                .createChooserIntent()
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+        }
+        startActivity(shareIntent)
     }
 
-    //    private fun selectTagColor(binding: FragmentTaskDetailBinding, id: Int?): Int {
+//    private fun selectTagColor(binding: FragmentTaskDetailBinding, id: Int?): Int {
 //        return when (id) {
 //            binding.red.id -> TAG_RED
 //            binding.blue.id -> TAG_BLUE
@@ -108,18 +114,19 @@ class AddTaskFragment : Fragment() {
 //            else -> TAG_PINK
 //        }
 //    }
-//    private fun selectTagColor(binding: FragmentAddTaskBinding, id: Int?): Int {
-//        return when (id) {
-//            binding.hasty.id -> TAG_RED
-//            binding.star.id -> TAG_BLUE
-//            binding.cart.id -> TAG_YELLOW
-//            binding.pin.id -> TAG_PINK
-//            else -> TAG_PINK
-//        }
-//    }
+    private fun selectTagColor(binding: FragmentMemoDetailBinding, id: Int?): Int {
+        return when (id) {
+            binding.hasty.id -> TAG_RED
+            binding.star.id -> TAG_BLUE
+            binding.cart.id -> TAG_YELLOW
+            binding.pin.id -> TAG_PINK
+            else -> TAG_PINK
+        }
+    }
 
     interface Callback {
-        fun onAdd()
+        fun onEdit(task: Task?)
+        fun onChangeColor(view: View?, task: Task?)
     }
 }
 //val builder = MaterialDatePicker.Builder.datePicker()

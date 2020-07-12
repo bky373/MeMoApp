@@ -65,7 +65,7 @@
                 android:layout_marginStart="27dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/gmarket_sans_medium"
-                android:hint="@string/hint_enter_task"
+                android:hint="@string/hint_write_memo"
                 android:onClick="@{clickListener}"
                 android:padding="4dp"
                 android:text="@{task.name}"

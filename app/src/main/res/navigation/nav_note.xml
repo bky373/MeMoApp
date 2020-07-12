@@ -23,6 +23,6 @@
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
-        android:name="com.bobo.mytodolist.AddTaskFragment"
+        android:name="com.bobo.mytodolist.AddMemoFragment"
         android:label="AddTaskFragment" />
 </navigation>

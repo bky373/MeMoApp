@@ -24,35 +24,24 @@
         tools:context=".TaskDetailFragment">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            android:theme="@style/Theme.MemoMemo.AppBarOverlay">
+            android:theme="@style/Theme.MemoMemo.AppBarOverlay"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginBottom="7dp"
                 android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
-                app:menu="@menu/menu_task_detail"
                 app:navigationIcon="@drawable/ic_detail_back"
-                app:titleTextColor="?attr/colorOnSurface">
-
-                <TextView
-                    style="@style/BasicTextStyle.MemoMemo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="메모 수정하기"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-            </androidx.appcompat.widget.Toolbar>
+                app:menu="@menu/menu_task_detail"
+                app:title="@string/edit_task_name"
+                app:titleTextAppearance="@style/BasicTextStyle.MemoMemo"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -85,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5sp"
-                    android:hint="@string/enter_todo"
+                    android:hint="@string/write_memo"
                     android:text="@{viewModel.task.name}" />
             </LinearLayout>
 
@@ -166,10 +155,12 @@
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/gmarket_sans_medium"
             android:onClick="@{() -> callback.onEdit(viewModel.task)}"
-            android:text="@string/extended_fab_label"
-            android:textSize="14dp"
-            android:tint="@color/white"
-            app:icon="@drawable/ic_check" />
+            android:text="@string/fab_label_finish_edit"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:icon="@drawable/ic_check"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
